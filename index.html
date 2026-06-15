@@ -30,11 +30,47 @@
       padding: 0 16px 100px;
     }
 
+    /* ── Lang toggle ── */
+    .lang-bar {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 16px 0 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .lang-toggle {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text3);
+      letter-spacing: 0.5px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
     /* ── Hero header ── */
     header {
       max-width: 760px;
       margin: 0 auto;
-      padding: 64px 0 48px;
+      padding: 40px 0 48px;
       border-bottom: 1px solid var(--border);
       text-align: center;
     }
@@ -43,15 +79,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 0;
       margin-bottom: 36px;
-    }
-
-    .logo-img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 18px rgba(139,133,249,0.45));
     }
 
     .logo-name {
@@ -62,17 +91,14 @@
       line-height: 1;
     }
 
-    .logo-name span {
-      color: var(--primary2);
-    }
+    .logo-name span { color: var(--primary2); }
 
     h1 {
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 400;
       color: var(--text3);
       letter-spacing: -0.2px;
       margin-bottom: 14px;
-      font-weight: 400;
     }
 
     .badges {
@@ -96,16 +122,17 @@
       font-weight: 500;
     }
 
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--primary);
-      flex-shrink: 0;
-    }
-
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
     .badge-dot.amber { background: var(--amber); }
     .badge-dot.green { background: #34D399; }
+
+    .meta-dates {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text3);
+    }
+
+    .meta-dates strong { color: var(--text2); }
 
     /* ── TOC ── */
     .toc {
@@ -140,7 +167,6 @@
       align-items: center;
       gap: 8px;
       padding: 4px 0;
-      transition: color 0.15s;
     }
 
     .toc-grid a:hover { color: var(--primary2); }
@@ -159,7 +185,6 @@
       padding-top: 56px;
     }
 
-    /* ── Intro card ── */
     .intro {
       background: linear-gradient(135deg, rgba(139,133,249,0.08) 0%, rgba(139,133,249,0.03) 100%);
       border: 1px solid rgba(139,133,249,0.18);
@@ -172,7 +197,6 @@
 
     .intro strong { color: var(--text); }
 
-    /* ── Sections ── */
     section {
       margin-bottom: 52px;
       scroll-margin-top: 24px;
@@ -216,11 +240,7 @@
     p { margin-bottom: 14px; color: var(--text2); }
     p:last-child { margin-bottom: 0; }
 
-    ul, ol {
-      padding: 0;
-      margin: 10px 0 16px;
-      list-style: none;
-    }
+    ul, ol { padding: 0; margin: 10px 0 16px; list-style: none; }
 
     ul li, ol li {
       padding: 7px 0 7px 22px;
@@ -233,10 +253,8 @@
     ul li::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 16px;
-      width: 5px;
-      height: 5px;
+      left: 0; top: 16px;
+      width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--primary);
     }
@@ -246,16 +264,12 @@
     ol li::before {
       content: counter(ol-counter);
       position: absolute;
-      left: 0;
-      top: 7px;
-      font-size: 11px;
-      font-weight: 700;
+      left: 0; top: 7px;
+      font-size: 11px; font-weight: 700;
       color: var(--primary);
-      width: 16px;
-      text-align: center;
+      width: 16px; text-align: center;
     }
 
-    /* ── Table ── */
     .table-wrap {
       overflow-x: auto;
       border-radius: var(--radius);
@@ -263,11 +277,7 @@
       margin: 14px 0;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
 
     thead th {
       background: var(--surface2);
@@ -292,7 +302,6 @@
 
     tbody tr:hover td { background: rgba(255,255,255,0.02); }
 
-    /* ── Highlight boxes ── */
     .box {
       border-radius: var(--radius);
       padding: 18px 22px;
@@ -301,26 +310,14 @@
       line-height: 1.65;
     }
 
-    .box-primary {
-      background: rgba(139,133,249,0.07);
-      border: 1px solid rgba(139,133,249,0.18);
-    }
-
-    .box-amber {
-      background: rgba(245,160,59,0.07);
-      border: 1px solid rgba(245,160,59,0.18);
-    }
-
-    .box-green {
-      background: rgba(52,211,153,0.07);
-      border: 1px solid rgba(52,211,153,0.18);
-    }
+    .box-primary { background: rgba(139,133,249,0.07); border: 1px solid rgba(139,133,249,0.18); }
+    .box-amber   { background: rgba(245,160,59,0.07);  border: 1px solid rgba(245,160,59,0.18); }
+    .box-green   { background: rgba(52,211,153,0.07);  border: 1px solid rgba(52,211,153,0.18); }
 
     .box-primary strong { color: var(--primary2); }
     .box-amber strong   { color: var(--amber); }
     .box-green strong   { color: #34D399; }
 
-    /* ── Contact card ── */
     .contact-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -332,51 +329,34 @@
     }
 
     .contact-icon {
-      width: 46px;
-      height: 46px;
+      width: 46px; height: 46px;
       background: rgba(139,133,249,0.10);
       border: 1px solid rgba(139,133,249,0.20);
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
     }
 
     .contact-label {
-      font-size: 11px;
-      color: var(--text3);
+      font-size: 11px; color: var(--text3);
       margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.7px; font-weight: 700;
     }
 
     .contact-email {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary2);
-      text-decoration: none;
+      font-size: 16px; font-weight: 700;
+      color: var(--primary2); text-decoration: none;
     }
 
     .contact-email:hover { text-decoration: underline; }
 
     .contact-note {
-      font-size: 13px;
-      color: var(--text3);
-      margin-top: 6px;
-      line-height: 1.5;
+      font-size: 13px; color: var(--text3);
+      margin-top: 6px; line-height: 1.5;
     }
 
-    /* ── Divider ── */
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
-    }
+    hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
-    /* ── Footer ── */
     footer {
       max-width: 760px;
       margin: 0 auto;
@@ -404,423 +384,617 @@
 </head>
 <body>
 
+  <!-- ── Lang toggle ── -->
+  <div class="lang-bar">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+
   <!-- ── Header ── -->
   <header>
     <div class="logo-wrap">
       <div class="logo-name">Project<span>a</span></div>
     </div>
-    <h1>Privacy Policy</h1>
+    <h1 data-i18n="h1"></h1>
     <div class="badges">
-      <span class="badge"><span class="badge-dot"></span>GDPR compliant</span>
-      <span class="badge"><span class="badge-dot amber"></span>CCPA compliant</span>
-      <span class="badge"><span class="badge-dot green"></span>No data selling</span>
-      <span class="badge"><span class="badge-dot green"></span>No ads or tracking</span>
+      <span class="badge"><span class="badge-dot"></span><span data-i18n="badge1"></span></span>
+      <span class="badge"><span class="badge-dot amber"></span><span data-i18n="badge2"></span></span>
+      <span class="badge"><span class="badge-dot green"></span><span data-i18n="badge3"></span></span>
+      <span class="badge"><span class="badge-dot green"></span><span data-i18n="badge4"></span></span>
     </div>
-    <p style="margin-top:20px;font-size:13px;color:var(--text3);">
-      Effective date: <strong style="color:var(--text2)">June 15, 2026</strong> &nbsp;·&nbsp; Last updated: <strong style="color:var(--text2)">June 15, 2026</strong>
+    <p class="meta-dates">
+      <span data-i18n="effective_label"></span>: <strong>June 15, 2026</strong>
+      &nbsp;·&nbsp;
+      <span data-i18n="updated_label"></span>: <strong>June 15, 2026</strong>
     </p>
   </header>
 
   <!-- ── TOC ── -->
   <nav class="toc" aria-label="Table of contents">
-    <div class="toc-title">Table of Contents</div>
-    <div class="toc-grid">
-      <a href="#s1"><span class="toc-num">1</span> Who We Are</a>
-      <a href="#s2"><span class="toc-num">2</span> Scope of This Policy</a>
-      <a href="#s3"><span class="toc-num">3</span> Information We Collect</a>
-      <a href="#s4"><span class="toc-num">4</span> How We Use Your Information</a>
-      <a href="#s5"><span class="toc-num">5</span> Legal Basis for Processing</a>
-      <a href="#s6"><span class="toc-num">6</span> Data Sharing & Third Parties</a>
-      <a href="#s7"><span class="toc-num">7</span> Data Retention</a>
-      <a href="#s8"><span class="toc-num">8</span> Data Security</a>
-      <a href="#s9"><span class="toc-num">9</span> International Data Transfers</a>
-      <a href="#s10"><span class="toc-num">10</span> Your Rights</a>
-      <a href="#s11"><span class="toc-num">11</span> California Residents (CCPA)</a>
-      <a href="#s12"><span class="toc-num">12</span> Children's Privacy</a>
-      <a href="#s13"><span class="toc-num">13</span> Cookies & Tracking</a>
-      <a href="#s14"><span class="toc-num">14</span> In-App Purchases & Payments</a>
-      <a href="#s15"><span class="toc-num">15</span> Account Deletion</a>
-      <a href="#s16"><span class="toc-num">16</span> Changes to This Policy</a>
-      <a href="#s17"><span class="toc-num">17</span> Contact Us</a>
-    </div>
+    <div class="toc-title" data-i18n="toc_title"></div>
+    <div class="toc-grid" id="toc-grid"></div>
   </nav>
 
   <main>
+    <div class="intro" data-i18n-html="intro"></div>
 
-    <div class="intro">
-      <strong>Plain-English summary:</strong> Projecta is a personal climbing tracker. We collect only your email address and the climbing data you enter. We do not sell your data, show you ads, or track you across other apps or websites. Your data is stored securely via Supabase. You can request deletion of your account and all associated data at any time by contacting us.
-    </div>
-
-    <!-- 1 -->
     <section id="s1">
-      <h2><span class="num">1</span> Who We Are</h2>
-      <p>Projecta ("we", "us", "our") is a mobile application for tracking climbing projects, attempts, and progress, available on iOS and Android. The app is developed and operated by an individual developer.</p>
-      <p>This Privacy Policy explains how we collect, use, store, and protect your personal information when you use the Projecta app. By creating an account and using the app, you agree to the practices described in this policy.</p>
-      <p>For any privacy-related questions or requests, you can reach us at: <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a></p>
+      <h2><span class="num">1</span><span data-i18n="s1_title"></span></h2>
+      <div data-i18n-html="s1"></div>
     </section>
 
-    <!-- 2 -->
     <section id="s2">
-      <h2><span class="num">2</span> Scope of This Policy</h2>
-      <p>This Privacy Policy applies to:</p>
-      <ul>
-        <li>The Projecta iOS app (available on the Apple App Store)</li>
-        <li>The Projecta Android app (available on Google Play)</li>
-        <li>Any related services, communications, or support interactions with us</li>
-      </ul>
-      <p>This policy does not apply to third-party websites or services that may be linked from within the app. We encourage you to review the privacy policies of any third-party services you use.</p>
+      <h2><span class="num">2</span><span data-i18n="s2_title"></span></h2>
+      <div data-i18n-html="s2"></div>
     </section>
 
-    <!-- 3 -->
     <section id="s3">
-      <h2><span class="num">3</span> Information We Collect</h2>
-      <p>We collect only what is necessary to provide the app's functionality. We do not collect data in the background, sell data, or build advertising profiles.</p>
-
-      <h3>3.1 Information you provide directly</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Data type</th><th>Examples</th><th>Purpose</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Account credentials</strong></td>
-              <td>Email address, password (hashed)</td>
-              <td>Create and authenticate your account</td>
-            </tr>
-            <tr>
-              <td><strong>Climbing projects</strong></td>
-              <td>Route name, grade, wall type, gym or crag name</td>
-              <td>Core tracking functionality</td>
-            </tr>
-            <tr>
-              <td><strong>Attempt records</strong></td>
-              <td>Date, outcome (send / fall / project), attempt number, notes</td>
-              <td>Progress tracking and statistics</td>
-            </tr>
-            <tr>
-              <td><strong>User notes</strong></td>
-              <td>Free-text notes on routes or sessions</td>
-              <td>Personal journaling within the app</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>3.2 Information collected automatically</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Data type</th><th>Source</th><th>Purpose</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>IP address</strong></td>
-              <td>Supabase infrastructure logs</td>
-              <td>Security, abuse prevention</td>
-            </tr>
-            <tr>
-              <td><strong>Request timestamps</strong></td>
-              <td>Supabase server logs</td>
-              <td>Diagnosing errors, rate limiting</td>
-            </tr>
-            <tr>
-              <td><strong>Device operating system</strong></td>
-              <td>Supabase Auth metadata</td>
-              <td>Session management</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="box box-primary">
-        <strong>We do not collect:</strong> your real name, phone number, physical location or GPS data, contacts, photos, payment information, health or biometric data, advertising identifiers (IDFA / GAID), or any data from other apps on your device.
-      </div>
+      <h2><span class="num">3</span><span data-i18n="s3_title"></span></h2>
+      <div data-i18n-html="s3"></div>
     </section>
 
-    <!-- 4 -->
     <section id="s4">
-      <h2><span class="num">4</span> How We Use Your Information</h2>
-      <p>We use the information we collect solely to operate and improve the Projecta app. Specifically:</p>
-      <ul>
-        <li><strong>Authenticate you</strong> — verify your identity when you sign in and protect your account from unauthorized access.</li>
-        <li><strong>Store and sync your data</strong> — save your climbing projects and attempts so they are available across your devices.</li>
-        <li><strong>Display statistics</strong> — calculate and show you your progress, attempt counts, grades, and other in-app metrics.</li>
-        <li><strong>Send account emails</strong> — deliver transactional emails such as password resets or email verification. We do not send marketing emails.</li>
-        <li><strong>Provide support</strong> — respond to requests or questions you send us by email.</li>
-        <li><strong>Maintain security</strong> — detect and prevent unauthorized access, fraud, or abuse of the service.</li>
-        <li><strong>Comply with the law</strong> — meet our legal obligations where required by applicable legislation.</li>
-      </ul>
-      <div class="box box-green">
-        <strong>We do not use your data for:</strong> advertising, profiling, machine learning model training, resale to data brokers, or any purpose not listed above.
-      </div>
+      <h2><span class="num">4</span><span data-i18n="s4_title"></span></h2>
+      <div data-i18n-html="s4"></div>
     </section>
 
-    <!-- 5 -->
     <section id="s5">
-      <h2><span class="num">5</span> Legal Basis for Processing (GDPR)</h2>
-      <p>If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, we process your personal data under the following legal bases as defined by the General Data Protection Regulation (GDPR):</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Legal basis</th><th>Data affected</th><th>Explanation</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Performance of a contract</strong> (Art. 6(1)(b))</td>
-              <td>Account credentials, climbing data</td>
-              <td>Processing is necessary to deliver the service you signed up for. Without it, the app cannot function.</td>
-            </tr>
-            <tr>
-              <td><strong>Legitimate interests</strong> (Art. 6(1)(f))</td>
-              <td>Server logs, IP addresses</td>
-              <td>We have a legitimate interest in keeping the service secure and diagnosing technical issues. These interests do not override your privacy rights.</td>
-            </tr>
-            <tr>
-              <td><strong>Legal obligation</strong> (Art. 6(1)(c))</td>
-              <td>Any data required by law</td>
-              <td>We may process data to comply with a legal obligation imposed on us.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <h2><span class="num">5</span><span data-i18n="s5_title"></span></h2>
+      <div data-i18n-html="s5"></div>
     </section>
 
-    <!-- 6 -->
     <section id="s6">
-      <h2><span class="num">6</span> Data Sharing &amp; Third Parties</h2>
-      <p>We do not sell, rent, or trade your personal data to any third party. We share data only in the limited circumstances below.</p>
-
-      <h3>6.1 Infrastructure provider — Supabase</h3>
-      <p>We use <strong>Supabase</strong> (Supabase Inc., San Francisco, CA, USA) as our backend infrastructure provider for database storage and user authentication. All your data is stored on Supabase-managed servers. Supabase acts as a <em>data processor</em> — it processes your data only on our instructions and may not use it for its own purposes.</p>
-      <ul>
-        <li>Supabase Privacy Policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
-        <li>Supabase Data Processing Agreement: <a href="https://supabase.com/dpa" target="_blank" rel="noopener">supabase.com/dpa</a></li>
-        <li>Supabase Security: <a href="https://supabase.com/security" target="_blank" rel="noopener">supabase.com/security</a></li>
-      </ul>
-
-      <h3>6.2 Legal requirements</h3>
-      <p>We may disclose your personal data if required to do so by law, court order, or governmental authority, or if we believe in good faith that such disclosure is necessary to protect the rights, property, or safety of Projecta, its users, or the public.</p>
-
-      <h3>6.3 Business transfers</h3>
-      <p>In the unlikely event that Projecta is acquired or transfers its assets, your personal data may be transferred as part of that transaction. If this occurs, we will notify you via the email address associated with your account before your data is subject to any different privacy policy.</p>
-
-      <div class="box box-primary">
-        <strong>No advertising networks, analytics SDKs, or data brokers</strong> have access to your data. The app contains no third-party advertising or analytics SDKs.
-      </div>
+      <h2><span class="num">6</span><span data-i18n="s6_title"></span></h2>
+      <div data-i18n-html="s6"></div>
     </section>
 
-    <!-- 7 -->
     <section id="s7">
-      <h2><span class="num">7</span> Data Retention</h2>
-      <p>We retain your personal data for as long as your account remains active or as long as needed to provide you with the app's services.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Data type</th><th>Retention period</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Account credentials and climbing data</td>
-              <td>Until you delete your account, then purged within 30 days</td>
-            </tr>
-            <tr>
-              <td>Server and security logs (IP, timestamps)</td>
-              <td>Up to 90 days, as managed by Supabase infrastructure</td>
-            </tr>
-            <tr>
-              <td>Support emails</td>
-              <td>Up to 2 years, or until you request deletion</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>After the retention period expires, data is permanently deleted or anonymized so it can no longer be linked to you. We do not archive or back up deleted user data beyond these timeframes.</p>
+      <h2><span class="num">7</span><span data-i18n="s7_title"></span></h2>
+      <div data-i18n-html="s7"></div>
     </section>
 
-    <!-- 8 -->
     <section id="s8">
-      <h2><span class="num">8</span> Data Security</h2>
-      <p>We take the security of your data seriously and rely on industry-standard practices provided by Supabase's infrastructure:</p>
-      <ul>
-        <li><strong>Encryption in transit</strong> — all data transmitted between the app and our servers is encrypted using TLS 1.2 or higher.</li>
-        <li><strong>Encryption at rest</strong> — data stored in the Supabase database is encrypted at rest using AES-256.</li>
-        <li><strong>Password security</strong> — passwords are never stored in plain text. Supabase Auth uses bcrypt hashing with a work factor designed to resist brute-force attacks.</li>
-        <li><strong>Row-level security (RLS)</strong> — database access policies ensure that each user can only access their own data, even at the infrastructure level.</li>
-        <li><strong>Access controls</strong> — only the app's service role key, stored securely server-side, can access the database. Your client receives only a limited anonymous key.</li>
-      </ul>
-      <p>Despite these measures, no security system is impenetrable. We cannot guarantee the absolute security of your data. If you discover a vulnerability or security concern, please disclose it responsibly by emailing us directly before making it public.</p>
+      <h2><span class="num">8</span><span data-i18n="s8_title"></span></h2>
+      <div data-i18n-html="s8"></div>
     </section>
 
-    <!-- 9 -->
     <section id="s9">
-      <h2><span class="num">9</span> International Data Transfers</h2>
-      <p>Projecta is operated from Spain. Our infrastructure provider, Supabase, stores and processes data on servers located in the United States. If you are located in the EEA, UK, or another region with data protection laws governing cross-border transfers, please be aware that your data will be transferred to and processed in a country that may have different data protection standards than your home country.</p>
-      <p>Supabase provides appropriate safeguards for international transfers through:</p>
-      <ul>
-        <li>Standard Contractual Clauses (SCCs) approved by the European Commission for transfers from the EEA</li>
-        <li>An International Data Transfer Agreement (IDTA) for transfers from the United Kingdom</li>
-        <li>Compliance with applicable data protection frameworks</li>
-      </ul>
-      <p>For more information on Supabase's transfer mechanisms, see their <a href="https://supabase.com/dpa" target="_blank" rel="noopener">Data Processing Agreement</a>.</p>
+      <h2><span class="num">9</span><span data-i18n="s9_title"></span></h2>
+      <div data-i18n-html="s9"></div>
     </section>
 
-    <!-- 10 -->
     <section id="s10">
-      <h2><span class="num">10</span> Your Rights</h2>
-      <p>Depending on your location, you have certain rights regarding your personal data. We are committed to honoring these rights and will respond to all verified requests within <strong>30 days</strong>.</p>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Right</th><th>What it means</th><th>How to exercise it</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Right to access</strong></td>
-              <td>Request a copy of all personal data we hold about you, in a portable format.</td>
-              <td>Email us with subject "Data Access Request"</td>
-            </tr>
-            <tr>
-              <td><strong>Right to rectification</strong></td>
-              <td>Ask us to correct any inaccurate or incomplete personal data.</td>
-              <td>Email us or update directly in-app</td>
-            </tr>
-            <tr>
-              <td><strong>Right to erasure</strong></td>
-              <td>Request deletion of your account and all associated personal data ("right to be forgotten").</td>
-              <td>Email us with subject "Account Deletion Request"</td>
-            </tr>
-            <tr>
-              <td><strong>Right to data portability</strong></td>
-              <td>Receive your climbing data in a structured, machine-readable format (JSON or CSV).</td>
-              <td>Email us with subject "Data Export Request"</td>
-            </tr>
-            <tr>
-              <td><strong>Right to restrict processing</strong></td>
-              <td>Ask us to pause processing of your data while a dispute is being resolved.</td>
-              <td>Email us explaining the restriction requested</td>
-            </tr>
-            <tr>
-              <td><strong>Right to object</strong></td>
-              <td>Object to processing based on legitimate interests.</td>
-              <td>Email us with your objection</td>
-            </tr>
-            <tr>
-              <td><strong>Right to withdraw consent</strong></td>
-              <td>Where processing is based on consent, withdraw it at any time without affecting past processing.</td>
-              <td>Email us or delete your account</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p>If you are in the EEA and believe we have not addressed your concern adequately, you have the right to lodge a complaint with your local data protection supervisory authority. In Spain, this is the <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+      <h2><span class="num">10</span><span data-i18n="s10_title"></span></h2>
+      <div data-i18n-html="s10"></div>
     </section>
 
-    <!-- 11 -->
     <section id="s11">
-      <h2><span class="num">11</span> California Residents (CCPA / CPRA)</h2>
-      <p>If you are a California resident, the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA), grants you specific rights regarding your personal information.</p>
-
-      <h3>Categories of personal information collected</h3>
-      <p>In the past 12 months, we have collected the following categories of personal information as defined by the CCPA:</p>
-      <ul>
-        <li><strong>Identifiers</strong> — email address</li>
-        <li><strong>Internet or other electronic network activity</strong> — IP address, session timestamps</li>
-        <li><strong>Other personal information you voluntarily provide</strong> — climbing project names, notes, attempt records</li>
-      </ul>
-
-      <h3>Your CCPA rights</h3>
-      <ul>
-        <li><strong>Right to Know</strong> — you may request disclosure of the categories and specific pieces of personal information we have collected about you.</li>
-        <li><strong>Right to Delete</strong> — you may request deletion of your personal information, subject to certain exceptions.</li>
-        <li><strong>Right to Correct</strong> — you may request correction of inaccurate personal information.</li>
-        <li><strong>Right to Opt-Out of Sale or Sharing</strong> — we do not sell or share your personal information for cross-context behavioral advertising. No opt-out is necessary.</li>
-        <li><strong>Right to Non-Discrimination</strong> — we will not discriminate against you for exercising any of your CCPA rights.</li>
-      </ul>
-      <p>To submit a CCPA request, email us at <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>. We will verify your identity before processing the request and respond within 45 days (extendable by an additional 45 days when reasonably necessary).</p>
+      <h2><span class="num">11</span><span data-i18n="s11_title"></span></h2>
+      <div data-i18n-html="s11"></div>
     </section>
 
-    <!-- 12 -->
     <section id="s12">
-      <h2><span class="num">12</span> Children's Privacy</h2>
-      <div class="box box-amber">
-        <strong>Projecta is not directed at children under the age of 13</strong> (or 16 in the EEA/UK, where applicable). We do not knowingly collect personal information from children below this age threshold.
-      </div>
-      <p>If you are a parent or guardian and believe your child has provided us with personal information without your consent, please contact us immediately at <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>. We will take prompt steps to delete that information from our systems.</p>
-      <p>If we discover that we have inadvertently collected data from a child under the applicable age threshold, we will delete it as quickly as possible. We reserve the right to terminate accounts found to belong to underage users.</p>
+      <h2><span class="num">12</span><span data-i18n="s12_title"></span></h2>
+      <div data-i18n-html="s12"></div>
     </section>
 
-    <!-- 13 -->
     <section id="s13">
-      <h2><span class="num">13</span> Cookies &amp; Tracking Technologies</h2>
-      <p>The Projecta mobile app does not use browser cookies. However, our infrastructure provider Supabase uses session tokens to maintain your authenticated state within the app. These tokens are stored securely in the device's local storage and are used solely for authentication purposes.</p>
-      <p>We do not use:</p>
-      <ul>
-        <li>Advertising cookies or tracking pixels</li>
-        <li>Cross-app or cross-site tracking technologies</li>
-        <li>Fingerprinting or device identifiers for analytics</li>
-        <li>Third-party analytics SDKs (e.g., Firebase Analytics, Mixpanel, Amplitude)</li>
-      </ul>
+      <h2><span class="num">13</span><span data-i18n="s13_title"></span></h2>
+      <div data-i18n-html="s13"></div>
     </section>
 
-    <!-- 14 -->
     <section id="s14">
-      <h2><span class="num">14</span> In-App Purchases &amp; Payments</h2>
-      <p>Projecta is currently a free app. We do not collect, process, or store any payment or financial information. If in-app purchases are introduced in the future, they will be handled exclusively through Apple App Store or Google Play's native payment systems. We will never handle raw payment card data directly.</p>
-      <p>If we introduce paid features, this Privacy Policy will be updated accordingly and you will be notified.</p>
+      <h2><span class="num">14</span><span data-i18n="s14_title"></span></h2>
+      <div data-i18n-html="s14"></div>
     </section>
 
-    <!-- 15 -->
     <section id="s15">
-      <h2><span class="num">15</span> Account Deletion</h2>
-      <p>You may request the deletion of your Projecta account and all associated data at any time. To do so:</p>
-      <ol>
-        <li>Send an email to <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a> with the subject line <strong>"Account Deletion Request"</strong>.</li>
-        <li>Include the email address associated with your account.</li>
-        <li>We will verify your identity and confirm the deletion request.</li>
-        <li>Your account and all personal data will be permanently deleted within <strong>30 days</strong> of confirmation.</li>
-      </ol>
-      <p>Please note that once deleted, your data cannot be recovered. Server-side infrastructure logs managed by Supabase may persist for up to 90 days after deletion, after which they are automatically purged.</p>
+      <h2><span class="num">15</span><span data-i18n="s15_title"></span></h2>
+      <div data-i18n-html="s15"></div>
     </section>
 
-    <!-- 16 -->
     <section id="s16">
-      <h2><span class="num">16</span> Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, the app's features, or applicable legal requirements. When we make changes, we will:</p>
-      <ul>
-        <li>Update the "Last updated" date at the top of this page</li>
-        <li>For material changes, notify you via the email address on your account or through an in-app notice at least 14 days before the change takes effect</li>
-        <li>For minor changes (clarifications, formatting), update this page without individual notification</li>
-      </ul>
-      <p>Your continued use of the app after any changes to this Privacy Policy constitutes your acceptance of the updated terms. If you disagree with the updated policy, you may stop using the app and request deletion of your account.</p>
+      <h2><span class="num">16</span><span data-i18n="s16_title"></span></h2>
+      <div data-i18n-html="s16"></div>
     </section>
 
-    <!-- 17 -->
     <section id="s17">
-      <h2><span class="num">17</span> Contact Us</h2>
-      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or the handling of your personal data, please contact us:</p>
-      <div class="contact-card">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <div class="contact-label">Privacy &amp; Data Requests</div>
-          <a class="contact-email" href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>
-          <div class="contact-note">
-            We aim to respond to all privacy-related requests within <strong>30 days</strong>.<br/>
-            For CCPA requests, the response window is 45 days (extendable by 45 additional days when necessary).<br/>
-            For urgent security disclosures, please mark your email <strong>"Security — Urgent"</strong>.
-          </div>
-        </div>
-      </div>
+      <h2><span class="num">17</span><span data-i18n="s17_title"></span></h2>
+      <div data-i18n-html="s17"></div>
     </section>
 
     <hr />
-
   </main>
 
   <footer>
-    <span>© 2026 Projecta. All rights reserved.</span>
-    <span>This policy applies to the Projecta iOS and Android mobile apps.</span>
+    <span data-i18n="footer1"></span>
+    <span data-i18n="footer2"></span>
   </footer>
 
+<script>
+const strings = {
+  en: {
+    page_title:      'Privacy Policy — Projecta',
+    h1:              'Privacy Policy',
+    badge1:          'GDPR compliant',
+    badge2:          'CCPA compliant',
+    badge3:          'No data selling',
+    badge4:          'No ads or tracking',
+    effective_label: 'Effective date',
+    updated_label:   'Last updated',
+    toc_title:       'Table of Contents',
+    toc: [
+      'Who We Are', 'Scope of This Policy', 'Information We Collect',
+      'How We Use Your Information', 'Legal Basis for Processing',
+      'Data Sharing & Third Parties', 'Data Retention', 'Data Security',
+      'International Data Transfers', 'Your Rights',
+      'California Residents (CCPA)', "Children's Privacy",
+      'Cookies & Tracking', 'In-App Purchases & Payments',
+      'Account Deletion', 'Changes to This Policy', 'Contact Us',
+    ],
+    intro: `<strong>Plain-English summary:</strong> Projecta is a personal climbing tracker. We collect only your email address and the climbing data you enter. We do not sell your data, show you ads, or track you across other apps or websites. Your data is stored securely via Supabase. You can request deletion of your account and all associated data at any time by contacting us.`,
+
+    s1_title: 'Who We Are',
+    s1: `<p>Projecta ("we", "us", "our") is a mobile application for tracking climbing projects, attempts, and progress, available on iOS and Android. The app is developed and operated by an individual developer.</p>
+<p>This Privacy Policy explains how we collect, use, store, and protect your personal information when you use the Projecta app. By creating an account and using the app, you agree to the practices described in this policy.</p>
+<p>For any privacy-related questions or requests, you can reach us at: <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a></p>`,
+
+    s2_title: 'Scope of This Policy',
+    s2: `<p>This Privacy Policy applies to:</p>
+<ul>
+  <li>The Projecta iOS app (available on the Apple App Store)</li>
+  <li>The Projecta Android app (available on Google Play)</li>
+  <li>Any related services, communications, or support interactions with us</li>
+</ul>
+<p>This policy does not apply to third-party websites or services that may be linked from within the app. We encourage you to review the privacy policies of any third-party services you use.</p>`,
+
+    s3_title: 'Information We Collect',
+    s3: `<p>We collect only what is necessary to provide the app's functionality. We do not collect data in the background, sell data, or build advertising profiles.</p>
+<h3>3.1 Information you provide directly</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Data type</th><th>Examples</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Account credentials</strong></td><td>Email address, password (hashed)</td><td>Create and authenticate your account</td></tr>
+    <tr><td><strong>Climbing projects</strong></td><td>Route name, grade, wall type, gym or crag name</td><td>Core tracking functionality</td></tr>
+    <tr><td><strong>Attempt records</strong></td><td>Date, outcome (send / fall / project), attempt number, notes</td><td>Progress tracking and statistics</td></tr>
+    <tr><td><strong>User notes</strong></td><td>Free-text notes on routes or sessions</td><td>Personal journaling within the app</td></tr>
+  </tbody>
+</table></div>
+<h3>3.2 Information collected automatically</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Data type</th><th>Source</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><strong>IP address</strong></td><td>Supabase infrastructure logs</td><td>Security, abuse prevention</td></tr>
+    <tr><td><strong>Request timestamps</strong></td><td>Supabase server logs</td><td>Diagnosing errors, rate limiting</td></tr>
+    <tr><td><strong>Device operating system</strong></td><td>Supabase Auth metadata</td><td>Session management</td></tr>
+  </tbody>
+</table></div>
+<div class="box box-primary"><strong>We do not collect:</strong> your real name, phone number, physical location or GPS data, contacts, photos, payment information, health or biometric data, advertising identifiers (IDFA / GAID), or any data from other apps on your device.</div>`,
+
+    s4_title: 'How We Use Your Information',
+    s4: `<p>We use the information we collect solely to operate and improve the Projecta app. Specifically:</p>
+<ul>
+  <li><strong>Authenticate you</strong> — verify your identity when you sign in and protect your account from unauthorized access.</li>
+  <li><strong>Store and sync your data</strong> — save your climbing projects and attempts so they are available across your devices.</li>
+  <li><strong>Display statistics</strong> — calculate and show you your progress, attempt counts, grades, and other in-app metrics.</li>
+  <li><strong>Send account emails</strong> — deliver transactional emails such as password resets or email verification. We do not send marketing emails.</li>
+  <li><strong>Provide support</strong> — respond to requests or questions you send us by email.</li>
+  <li><strong>Maintain security</strong> — detect and prevent unauthorized access, fraud, or abuse of the service.</li>
+  <li><strong>Comply with the law</strong> — meet our legal obligations where required by applicable legislation.</li>
+</ul>
+<div class="box box-green"><strong>We do not use your data for:</strong> advertising, profiling, machine learning model training, resale to data brokers, or any purpose not listed above.</div>`,
+
+    s5_title: 'Legal Basis for Processing (GDPR)',
+    s5: `<p>If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, we process your personal data under the following legal bases as defined by the General Data Protection Regulation (GDPR):</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Legal basis</th><th>Data affected</th><th>Explanation</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Performance of a contract</strong> (Art. 6(1)(b))</td><td>Account credentials, climbing data</td><td>Processing is necessary to deliver the service you signed up for. Without it, the app cannot function.</td></tr>
+    <tr><td><strong>Legitimate interests</strong> (Art. 6(1)(f))</td><td>Server logs, IP addresses</td><td>We have a legitimate interest in keeping the service secure and diagnosing technical issues. These interests do not override your privacy rights.</td></tr>
+    <tr><td><strong>Legal obligation</strong> (Art. 6(1)(c))</td><td>Any data required by law</td><td>We may process data to comply with a legal obligation imposed on us.</td></tr>
+  </tbody>
+</table></div>`,
+
+    s6_title: 'Data Sharing & Third Parties',
+    s6: `<p>We do not sell, rent, or trade your personal data to any third party. We share data only in the limited circumstances below.</p>
+<h3>6.1 Infrastructure provider — Supabase</h3>
+<p>We use <strong>Supabase</strong> (Supabase Inc., San Francisco, CA, USA) as our backend infrastructure provider for database storage and user authentication. All your data is stored on Supabase-managed servers. Supabase acts as a <em>data processor</em> — it processes your data only on our instructions and may not use it for its own purposes.</p>
+<ul>
+  <li>Supabase Privacy Policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
+  <li>Supabase Data Processing Agreement: <a href="https://supabase.com/dpa" target="_blank" rel="noopener">supabase.com/dpa</a></li>
+  <li>Supabase Security: <a href="https://supabase.com/security" target="_blank" rel="noopener">supabase.com/security</a></li>
+</ul>
+<h3>6.2 Legal requirements</h3>
+<p>We may disclose your personal data if required to do so by law, court order, or governmental authority, or if we believe in good faith that such disclosure is necessary to protect the rights, property, or safety of Projecta, its users, or the public.</p>
+<h3>6.3 Business transfers</h3>
+<p>In the unlikely event that Projecta is acquired or transfers its assets, your personal data may be transferred as part of that transaction. If this occurs, we will notify you via the email address associated with your account before your data is subject to any different privacy policy.</p>
+<div class="box box-primary"><strong>No advertising networks, analytics SDKs, or data brokers</strong> have access to your data. The app contains no third-party advertising or analytics SDKs.</div>`,
+
+    s7_title: 'Data Retention',
+    s7: `<p>We retain your personal data for as long as your account remains active or as long as needed to provide you with the app's services.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Data type</th><th>Retention period</th></tr></thead>
+  <tbody>
+    <tr><td>Account credentials and climbing data</td><td>Until you delete your account, then purged within 30 days</td></tr>
+    <tr><td>Server and security logs (IP, timestamps)</td><td>Up to 90 days, as managed by Supabase infrastructure</td></tr>
+    <tr><td>Support emails</td><td>Up to 2 years, or until you request deletion</td></tr>
+  </tbody>
+</table></div>
+<p>After the retention period expires, data is permanently deleted or anonymized so it can no longer be linked to you. We do not archive or back up deleted user data beyond these timeframes.</p>`,
+
+    s8_title: 'Data Security',
+    s8: `<p>We take the security of your data seriously and rely on industry-standard practices provided by Supabase's infrastructure:</p>
+<ul>
+  <li><strong>Encryption in transit</strong> — all data transmitted between the app and our servers is encrypted using TLS 1.2 or higher.</li>
+  <li><strong>Encryption at rest</strong> — data stored in the Supabase database is encrypted at rest using AES-256.</li>
+  <li><strong>Password security</strong> — passwords are never stored in plain text. Supabase Auth uses bcrypt hashing with a work factor designed to resist brute-force attacks.</li>
+  <li><strong>Row-level security (RLS)</strong> — database access policies ensure that each user can only access their own data, even at the infrastructure level.</li>
+  <li><strong>Access controls</strong> — only the app's service role key, stored securely server-side, can access the database. Your client receives only a limited anonymous key.</li>
+</ul>
+<p>Despite these measures, no security system is impenetrable. We cannot guarantee the absolute security of your data. If you discover a vulnerability or security concern, please disclose it responsibly by emailing us directly before making it public.</p>`,
+
+    s9_title: 'International Data Transfers',
+    s9: `<p>Projecta is operated from Spain. Our infrastructure provider, Supabase, stores and processes data on servers located in the United States. If you are located in the EEA, UK, or another region with data protection laws governing cross-border transfers, please be aware that your data will be transferred to and processed in a country that may have different data protection standards than your home country.</p>
+<p>Supabase provides appropriate safeguards for international transfers through:</p>
+<ul>
+  <li>Standard Contractual Clauses (SCCs) approved by the European Commission for transfers from the EEA</li>
+  <li>An International Data Transfer Agreement (IDTA) for transfers from the United Kingdom</li>
+  <li>Compliance with applicable data protection frameworks</li>
+</ul>
+<p>For more information on Supabase's transfer mechanisms, see their <a href="https://supabase.com/dpa" target="_blank" rel="noopener">Data Processing Agreement</a>.</p>`,
+
+    s10_title: 'Your Rights',
+    s10: `<p>Depending on your location, you have certain rights regarding your personal data. We are committed to honoring these rights and will respond to all verified requests within <strong>30 days</strong>.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Right</th><th>What it means</th><th>How to exercise it</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Right to access</strong></td><td>Request a copy of all personal data we hold about you, in a portable format.</td><td>Email us with subject "Data Access Request"</td></tr>
+    <tr><td><strong>Right to rectification</strong></td><td>Ask us to correct any inaccurate or incomplete personal data.</td><td>Email us or update directly in-app</td></tr>
+    <tr><td><strong>Right to erasure</strong></td><td>Request deletion of your account and all associated personal data ("right to be forgotten").</td><td>Email us with subject "Account Deletion Request"</td></tr>
+    <tr><td><strong>Right to data portability</strong></td><td>Receive your climbing data in a structured, machine-readable format (JSON or CSV).</td><td>Email us with subject "Data Export Request"</td></tr>
+    <tr><td><strong>Right to restrict processing</strong></td><td>Ask us to pause processing of your data while a dispute is being resolved.</td><td>Email us explaining the restriction requested</td></tr>
+    <tr><td><strong>Right to object</strong></td><td>Object to processing based on legitimate interests.</td><td>Email us with your objection</td></tr>
+    <tr><td><strong>Right to withdraw consent</strong></td><td>Where processing is based on consent, withdraw it at any time without affecting past processing.</td><td>Email us or delete your account</td></tr>
+  </tbody>
+</table></div>
+<p>If you are in the EEA and believe we have not addressed your concern adequately, you have the right to lodge a complaint with your local data protection supervisory authority. In Spain, this is the <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>`,
+
+    s11_title: 'California Residents (CCPA / CPRA)',
+    s11: `<p>If you are a California resident, the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA), grants you specific rights regarding your personal information.</p>
+<h3>Categories of personal information collected</h3>
+<p>In the past 12 months, we have collected the following categories of personal information as defined by the CCPA:</p>
+<ul>
+  <li><strong>Identifiers</strong> — email address</li>
+  <li><strong>Internet or other electronic network activity</strong> — IP address, session timestamps</li>
+  <li><strong>Other personal information you voluntarily provide</strong> — climbing project names, notes, attempt records</li>
+</ul>
+<h3>Your CCPA rights</h3>
+<ul>
+  <li><strong>Right to Know</strong> — you may request disclosure of the categories and specific pieces of personal information we have collected about you.</li>
+  <li><strong>Right to Delete</strong> — you may request deletion of your personal information, subject to certain exceptions.</li>
+  <li><strong>Right to Correct</strong> — you may request correction of inaccurate personal information.</li>
+  <li><strong>Right to Opt-Out of Sale or Sharing</strong> — we do not sell or share your personal information for cross-context behavioral advertising. No opt-out is necessary.</li>
+  <li><strong>Right to Non-Discrimination</strong> — we will not discriminate against you for exercising any of your CCPA rights.</li>
+</ul>
+<p>To submit a CCPA request, email us at <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>. We will verify your identity before processing the request and respond within 45 days (extendable by an additional 45 days when reasonably necessary).</p>`,
+
+    s12_title: "Children's Privacy",
+    s12: `<div class="box box-amber"><strong>Projecta is not directed at children under the age of 13</strong> (or 16 in the EEA/UK, where applicable). We do not knowingly collect personal information from children below this age threshold.</div>
+<p>If you are a parent or guardian and believe your child has provided us with personal information without your consent, please contact us immediately at <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>. We will take prompt steps to delete that information from our systems.</p>
+<p>If we discover that we have inadvertently collected data from a child under the applicable age threshold, we will delete it as quickly as possible. We reserve the right to terminate accounts found to belong to underage users.</p>`,
+
+    s13_title: 'Cookies & Tracking Technologies',
+    s13: `<p>The Projecta mobile app does not use browser cookies. However, our infrastructure provider Supabase uses session tokens to maintain your authenticated state within the app. These tokens are stored securely in the device's local storage and are used solely for authentication purposes.</p>
+<p>We do not use:</p>
+<ul>
+  <li>Advertising cookies or tracking pixels</li>
+  <li>Cross-app or cross-site tracking technologies</li>
+  <li>Fingerprinting or device identifiers for analytics</li>
+  <li>Third-party analytics SDKs (e.g., Firebase Analytics, Mixpanel, Amplitude)</li>
+</ul>`,
+
+    s14_title: 'In-App Purchases & Payments',
+    s14: `<p>Projecta is currently a free app. We do not collect, process, or store any payment or financial information. If in-app purchases are introduced in the future, they will be handled exclusively through Apple App Store or Google Play's native payment systems. We will never handle raw payment card data directly.</p>
+<p>If we introduce paid features, this Privacy Policy will be updated accordingly and you will be notified.</p>`,
+
+    s15_title: 'Account Deletion',
+    s15: `<p>You may request the deletion of your Projecta account and all associated data at any time. To do so:</p>
+<ol>
+  <li>Send an email to <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a> with the subject line <strong>"Account Deletion Request"</strong>.</li>
+  <li>Include the email address associated with your account.</li>
+  <li>We will verify your identity and confirm the deletion request.</li>
+  <li>Your account and all personal data will be permanently deleted within <strong>30 days</strong> of confirmation.</li>
+</ol>
+<p>Please note that once deleted, your data cannot be recovered. Server-side infrastructure logs managed by Supabase may persist for up to 90 days after deletion, after which they are automatically purged.</p>`,
+
+    s16_title: 'Changes to This Policy',
+    s16: `<p>We may update this Privacy Policy from time to time to reflect changes in our practices, the app's features, or applicable legal requirements. When we make changes, we will:</p>
+<ul>
+  <li>Update the "Last updated" date at the top of this page</li>
+  <li>For material changes, notify you via the email address on your account or through an in-app notice at least 14 days before the change takes effect</li>
+  <li>For minor changes (clarifications, formatting), update this page without individual notification</li>
+</ul>
+<p>Your continued use of the app after any changes to this Privacy Policy constitutes your acceptance of the updated terms. If you disagree with the updated policy, you may stop using the app and request deletion of your account.</p>`,
+
+    s17_title: 'Contact Us',
+    s17: `<p>If you have any questions, concerns, or requests regarding this Privacy Policy or the handling of your personal data, please contact us:</p>
+<div class="contact-card">
+  <div class="contact-icon">✉️</div>
+  <div>
+    <div class="contact-label">Privacy &amp; Data Requests</div>
+    <a class="contact-email" href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>
+    <div class="contact-note">
+      We aim to respond to all privacy-related requests within <strong>30 days</strong>.<br/>
+      For CCPA requests, the response window is 45 days (extendable by 45 additional days when necessary).<br/>
+      For urgent security disclosures, please mark your email <strong>"Security — Urgent"</strong>.
+    </div>
+  </div>
+</div>`,
+
+    footer1: '© 2026 Projecta. All rights reserved.',
+    footer2: 'This policy applies to the Projecta iOS and Android mobile apps.',
+  },
+
+  es: {
+    page_title:      'Política de Privacidad — Projecta',
+    h1:              'Política de Privacidad',
+    badge1:          'Cumple RGPD',
+    badge2:          'Cumple CCPA',
+    badge3:          'Sin venta de datos',
+    badge4:          'Sin anuncios ni rastreo',
+    effective_label: 'Fecha de vigencia',
+    updated_label:   'Última actualización',
+    toc_title:       'Tabla de Contenidos',
+    toc: [
+      'Quiénes Somos', 'Ámbito de Esta Política', 'Información que Recopilamos',
+      'Cómo Usamos Tu Información', 'Base Jurídica del Tratamiento',
+      'Compartición de Datos y Terceros', 'Conservación de Datos', 'Seguridad de los Datos',
+      'Transferencias Internacionales', 'Tus Derechos',
+      'Residentes en California (CCPA)', 'Privacidad de los Menores',
+      'Cookies y Rastreo', 'Compras en la App y Pagos',
+      'Eliminación de Cuenta', 'Cambios en Esta Política', 'Contáctanos',
+    ],
+    intro: `<strong>Resumen en palabras sencillas:</strong> Projecta es un rastreador de escalada personal. Recopilamos únicamente tu dirección de correo electrónico y los datos de escalada que introduces. No vendemos tus datos, no te mostramos anuncios ni te rastreamos en otras aplicaciones o sitios web. Tus datos se almacenan de forma segura a través de Supabase. Puedes solicitar la eliminación de tu cuenta y todos los datos asociados en cualquier momento contactándonos.`,
+
+    s1_title: 'Quiénes Somos',
+    s1: `<p>Projecta ("nosotros", "nos", "nuestro") es una aplicación móvil para registrar proyectos de escalada, intentos y progreso, disponible en iOS y Android. La aplicación es desarrollada y operada por un desarrollador individual.</p>
+<p>Esta Política de Privacidad explica cómo recopilamos, usamos, almacenamos y protegemos tu información personal cuando utilizas la aplicación Projecta. Al crear una cuenta y usar la aplicación, aceptas las prácticas descritas en esta política.</p>
+<p>Para cualquier pregunta o solicitud relacionada con la privacidad, puedes contactarnos en: <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a></p>`,
+
+    s2_title: 'Ámbito de Esta Política',
+    s2: `<p>Esta Política de Privacidad se aplica a:</p>
+<ul>
+  <li>La aplicación Projecta para iOS (disponible en Apple App Store)</li>
+  <li>La aplicación Projecta para Android (disponible en Google Play)</li>
+  <li>Cualquier servicio relacionado, comunicación o interacción de soporte con nosotros</li>
+</ul>
+<p>Esta política no se aplica a sitios web o servicios de terceros que puedan estar enlazados desde la aplicación. Te recomendamos revisar las políticas de privacidad de cualquier servicio de terceros que utilices.</p>`,
+
+    s3_title: 'Información que Recopilamos',
+    s3: `<p>Recopilamos únicamente lo necesario para proporcionar la funcionalidad de la aplicación. No recopilamos datos en segundo plano, no vendemos datos ni creamos perfiles publicitarios.</p>
+<h3>3.1 Información que proporcionas directamente</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Tipo de dato</th><th>Ejemplos</th><th>Finalidad</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Credenciales de cuenta</strong></td><td>Dirección de correo electrónico, contraseña (cifrada)</td><td>Crear y autenticar tu cuenta</td></tr>
+    <tr><td><strong>Proyectos de escalada</strong></td><td>Nombre de la vía, grado, tipo de pared, nombre del gimnasio o sector</td><td>Funcionalidad principal de seguimiento</td></tr>
+    <tr><td><strong>Registros de intentos</strong></td><td>Fecha, resultado (encadenamiento / caída / proyecto), número de intento, notas</td><td>Seguimiento del progreso y estadísticas</td></tr>
+    <tr><td><strong>Notas del usuario</strong></td><td>Notas en texto libre sobre vías o sesiones</td><td>Diario personal dentro de la aplicación</td></tr>
+  </tbody>
+</table></div>
+<h3>3.2 Información recopilada automáticamente</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Tipo de dato</th><th>Origen</th><th>Finalidad</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Dirección IP</strong></td><td>Registros de infraestructura de Supabase</td><td>Seguridad, prevención de abusos</td></tr>
+    <tr><td><strong>Marcas de tiempo</strong></td><td>Registros del servidor de Supabase</td><td>Diagnóstico de errores, limitación de velocidad</td></tr>
+    <tr><td><strong>Sistema operativo del dispositivo</strong></td><td>Metadatos de autenticación de Supabase</td><td>Gestión de sesiones</td></tr>
+  </tbody>
+</table></div>
+<div class="box box-primary"><strong>No recopilamos:</strong> tu nombre real, número de teléfono, ubicación física o datos GPS, contactos, fotos, información de pago, datos de salud o biométricos, identificadores publicitarios (IDFA / GAID) ni ningún dato de otras aplicaciones en tu dispositivo.</div>`,
+
+    s4_title: 'Cómo Usamos Tu Información',
+    s4: `<p>Usamos la información que recopilamos únicamente para operar y mejorar la aplicación Projecta. En concreto:</p>
+<ul>
+  <li><strong>Autenticarte</strong> — verificar tu identidad cuando inicias sesión y proteger tu cuenta de accesos no autorizados.</li>
+  <li><strong>Almacenar y sincronizar tus datos</strong> — guardar tus proyectos de escalada e intentos para que estén disponibles en todos tus dispositivos.</li>
+  <li><strong>Mostrar estadísticas</strong> — calcular y mostrarte tu progreso, recuentos de intentos, grados y otras métricas dentro de la aplicación.</li>
+  <li><strong>Enviar correos transaccionales</strong> — entregar correos como restablecimiento de contraseña o verificación de correo. No enviamos correos de marketing.</li>
+  <li><strong>Proporcionar soporte</strong> — responder a solicitudes o preguntas que nos envíes por correo electrónico.</li>
+  <li><strong>Mantener la seguridad</strong> — detectar y prevenir accesos no autorizados, fraudes o abusos del servicio.</li>
+  <li><strong>Cumplir con la ley</strong> — satisfacer nuestras obligaciones legales donde lo requiera la legislación aplicable.</li>
+</ul>
+<div class="box box-green"><strong>No usamos tus datos para:</strong> publicidad, elaboración de perfiles, entrenamiento de modelos de inteligencia artificial, reventa a intermediarios de datos ni ningún fin no indicado anteriormente.</div>`,
+
+    s5_title: 'Base Jurídica del Tratamiento (RGPD)',
+    s5: `<p>Si te encuentras en el Espacio Económico Europeo (EEE), Reino Unido o Suiza, tratamos tus datos personales bajo las siguientes bases jurídicas tal como las define el Reglamento General de Protección de Datos (RGPD):</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Base jurídica</th><th>Datos afectados</th><th>Explicación</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ejecución de un contrato</strong> (Art. 6(1)(b))</td><td>Credenciales de cuenta, datos de escalada</td><td>El tratamiento es necesario para prestar el servicio al que te has suscrito. Sin él, la aplicación no puede funcionar.</td></tr>
+    <tr><td><strong>Intereses legítimos</strong> (Art. 6(1)(f))</td><td>Registros del servidor, direcciones IP</td><td>Tenemos un interés legítimo en mantener el servicio seguro y diagnosticar problemas técnicos. Estos intereses no prevalecen sobre tus derechos de privacidad.</td></tr>
+    <tr><td><strong>Obligación legal</strong> (Art. 6(1)(c))</td><td>Cualquier dato requerido por ley</td><td>Podemos tratar datos para cumplir con una obligación legal que nos sea impuesta.</td></tr>
+  </tbody>
+</table></div>`,
+
+    s6_title: 'Compartición de Datos y Terceros',
+    s6: `<p>No vendemos, alquilamos ni cedemos tus datos personales a ningún tercero. Compartimos datos únicamente en las circunstancias limitadas que se indican a continuación.</p>
+<h3>6.1 Proveedor de infraestructura — Supabase</h3>
+<p>Utilizamos <strong>Supabase</strong> (Supabase Inc., San Francisco, CA, EE. UU.) como proveedor de infraestructura de backend para el almacenamiento de bases de datos y la autenticación de usuarios. Todos tus datos se almacenan en servidores gestionados por Supabase. Supabase actúa como <em>encargado del tratamiento</em>: procesa tus datos únicamente siguiendo nuestras instrucciones y no puede utilizarlos para sus propios fines.</p>
+<ul>
+  <li>Política de Privacidad de Supabase: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
+  <li>Acuerdo de Tratamiento de Datos: <a href="https://supabase.com/dpa" target="_blank" rel="noopener">supabase.com/dpa</a></li>
+  <li>Seguridad de Supabase: <a href="https://supabase.com/security" target="_blank" rel="noopener">supabase.com/security</a></li>
+</ul>
+<h3>6.2 Requisitos legales</h3>
+<p>Podemos divulgar tus datos personales si así lo exige la ley, una resolución judicial o una autoridad gubernamental, o si creemos de buena fe que dicha divulgación es necesaria para proteger los derechos, la propiedad o la seguridad de Projecta, sus usuarios o el público.</p>
+<h3>6.3 Transmisiones empresariales</h3>
+<p>En el improbable caso de que Projecta sea adquirida o transfiera sus activos, tus datos personales podrían transferirse como parte de dicha transacción. En tal caso, te notificaremos mediante la dirección de correo electrónico asociada a tu cuenta antes de que tus datos queden sujetos a una política de privacidad diferente.</p>
+<div class="box box-primary"><strong>Ninguna red publicitaria, SDK de análisis ni intermediario de datos</strong> tiene acceso a tus datos. La aplicación no contiene SDKs de publicidad ni de análisis de terceros.</div>`,
+
+    s7_title: 'Conservación de Datos',
+    s7: `<p>Conservamos tus datos personales mientras tu cuenta esté activa o mientras sea necesario para prestarte los servicios de la aplicación.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Tipo de dato</th><th>Período de conservación</th></tr></thead>
+  <tbody>
+    <tr><td>Credenciales de cuenta y datos de escalada</td><td>Hasta que elimines tu cuenta; se purgan en un plazo de 30 días</td></tr>
+    <tr><td>Registros de servidor y seguridad (IP, marcas de tiempo)</td><td>Hasta 90 días, según gestiona la infraestructura de Supabase</td></tr>
+    <tr><td>Correos de soporte</td><td>Hasta 2 años, o hasta que solicites su eliminación</td></tr>
+  </tbody>
+</table></div>
+<p>Transcurrido el período de conservación, los datos se eliminan permanentemente o se anonimizan de forma que ya no puedan vincularse a ti. No archivamos ni hacemos copias de seguridad de los datos de usuarios eliminados más allá de estos plazos.</p>`,
+
+    s8_title: 'Seguridad de los Datos',
+    s8: `<p>Nos tomamos muy en serio la seguridad de tus datos y nos apoyamos en las prácticas estándar del sector que proporciona la infraestructura de Supabase:</p>
+<ul>
+  <li><strong>Cifrado en tránsito</strong> — todos los datos transmitidos entre la aplicación y nuestros servidores se cifran mediante TLS 1.2 o superior.</li>
+  <li><strong>Cifrado en reposo</strong> — los datos almacenados en la base de datos de Supabase se cifran en reposo con AES-256.</li>
+  <li><strong>Seguridad de contraseñas</strong> — las contraseñas nunca se almacenan en texto plano. Supabase Auth utiliza hash bcrypt con un factor de trabajo diseñado para resistir ataques de fuerza bruta.</li>
+  <li><strong>Seguridad a nivel de fila (RLS)</strong> — las políticas de acceso a la base de datos garantizan que cada usuario solo pueda acceder a sus propios datos, incluso a nivel de infraestructura.</li>
+  <li><strong>Controles de acceso</strong> — solo la clave de rol de servicio de la aplicación, almacenada de forma segura en el servidor, puede acceder a la base de datos. Tu cliente solo recibe una clave anónima limitada.</li>
+</ul>
+<p>A pesar de estas medidas, ningún sistema de seguridad es inexpugnable. No podemos garantizar la seguridad absoluta de tus datos. Si descubres una vulnerabilidad o problema de seguridad, divúlgalo de forma responsable enviándonos un correo electrónico directamente antes de hacerlo público.</p>`,
+
+    s9_title: 'Transferencias Internacionales de Datos',
+    s9: `<p>Projecta se opera desde España. Nuestro proveedor de infraestructura, Supabase, almacena y procesa datos en servidores ubicados en los Estados Unidos. Si te encuentras en el EEE, el Reino Unido u otra región con leyes de protección de datos que regulen las transferencias transfronterizas, ten en cuenta que tus datos serán transferidos y procesados en un país que puede tener estándares de protección de datos diferentes a los de tu país de origen.</p>
+<p>Supabase proporciona garantías adecuadas para las transferencias internacionales mediante:</p>
+<ul>
+  <li>Cláusulas Contractuales Estándar (CCE) aprobadas por la Comisión Europea para transferencias desde el EEE</li>
+  <li>Un Acuerdo de Transferencia Internacional de Datos (ATID) para transferencias desde el Reino Unido</li>
+  <li>Cumplimiento con los marcos de protección de datos aplicables</li>
+</ul>
+<p>Para más información sobre los mecanismos de transferencia de Supabase, consulta su <a href="https://supabase.com/dpa" target="_blank" rel="noopener">Acuerdo de Tratamiento de Datos</a>.</p>`,
+
+    s10_title: 'Tus Derechos',
+    s10: `<p>Según tu ubicación, tienes determinados derechos sobre tus datos personales. Nos comprometemos a respetar estos derechos y responderemos a todas las solicitudes verificadas en un plazo de <strong>30 días</strong>.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Derecho</th><th>Qué significa</th><th>Cómo ejercerlo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Derecho de acceso</strong></td><td>Solicita una copia de todos los datos personales que conservamos sobre ti, en un formato portable.</td><td>Envíanos un correo con el asunto "Solicitud de Acceso a Datos"</td></tr>
+    <tr><td><strong>Derecho de rectificación</strong></td><td>Solicítanos que corrijamos cualquier dato personal inexacto o incompleto.</td><td>Envíanos un correo o actualízalo directamente en la aplicación</td></tr>
+    <tr><td><strong>Derecho de supresión</strong></td><td>Solicita la eliminación de tu cuenta y todos los datos personales asociados ("derecho al olvido").</td><td>Envíanos un correo con el asunto "Solicitud de Eliminación de Cuenta"</td></tr>
+    <tr><td><strong>Derecho a la portabilidad</strong></td><td>Recibe tus datos de escalada en un formato estructurado y legible por máquina (JSON o CSV).</td><td>Envíanos un correo con el asunto "Solicitud de Exportación de Datos"</td></tr>
+    <tr><td><strong>Derecho a la limitación</strong></td><td>Solicítanos que pausemos el tratamiento de tus datos mientras se resuelve una disputa.</td><td>Envíanos un correo explicando la limitación solicitada</td></tr>
+    <tr><td><strong>Derecho de oposición</strong></td><td>Oponerte al tratamiento basado en intereses legítimos.</td><td>Envíanos un correo con tu oposición</td></tr>
+    <tr><td><strong>Derecho a retirar el consentimiento</strong></td><td>Donde el tratamiento se base en el consentimiento, retíralo en cualquier momento sin afectar al tratamiento pasado.</td><td>Envíanos un correo o elimina tu cuenta</td></tr>
+  </tbody>
+</table></div>
+<p>Si te encuentras en el EEE y consideras que no hemos atendido adecuadamente tu reclamación, tienes derecho a presentar una queja ante tu autoridad supervisora local de protección de datos. En España, esta es la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>`,
+
+    s11_title: 'Residentes en California (CCPA / CPRA)',
+    s11: `<p>Si eres residente de California, la Ley de Privacidad del Consumidor de California (CCPA), modificada por la Ley de Derechos de Privacidad de California (CPRA), te otorga derechos específicos sobre tu información personal.</p>
+<h3>Categorías de información personal recopilada</h3>
+<p>En los últimos 12 meses, hemos recopilado las siguientes categorías de información personal tal como las define la CCPA:</p>
+<ul>
+  <li><strong>Identificadores</strong> — dirección de correo electrónico</li>
+  <li><strong>Actividad en Internet u otras redes electrónicas</strong> — dirección IP, marcas de tiempo de sesión</li>
+  <li><strong>Otra información personal que proporcionas voluntariamente</strong> — nombres de proyectos de escalada, notas, registros de intentos</li>
+</ul>
+<h3>Tus derechos bajo la CCPA</h3>
+<ul>
+  <li><strong>Derecho a Saber</strong> — puedes solicitar la divulgación de las categorías y piezas específicas de información personal que hemos recopilado sobre ti.</li>
+  <li><strong>Derecho a Eliminar</strong> — puedes solicitar la eliminación de tu información personal, sujeto a ciertas excepciones.</li>
+  <li><strong>Derecho a Corregir</strong> — puedes solicitar la corrección de información personal inexacta.</li>
+  <li><strong>Derecho a Optar por No Participar en la Venta</strong> — no vendemos ni compartimos tu información personal para publicidad conductual. No es necesario optar por no participar.</li>
+  <li><strong>Derecho a la No Discriminación</strong> — no te discriminaremos por ejercer ninguno de tus derechos bajo la CCPA.</li>
+</ul>
+<p>Para enviar una solicitud CCPA, escríbenos a <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>. Verificaremos tu identidad antes de procesar la solicitud y responderemos en un plazo de 45 días (ampliable en 45 días adicionales cuando sea razonablemente necesario).</p>`,
+
+    s12_title: 'Privacidad de los Menores',
+    s12: `<div class="box box-amber"><strong>Projecta no está dirigida a menores de 13 años</strong> (o 16 años en el EEE/Reino Unido, según corresponda). No recopilamos conscientemente información personal de menores por debajo de este umbral de edad.</div>
+<p>Si eres padre, madre o tutor y crees que tu hijo nos ha proporcionado información personal sin tu consentimiento, contáctanos de inmediato en <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>. Tomaremos medidas inmediatas para eliminar esa información de nuestros sistemas.</p>
+<p>Si descubrimos que hemos recopilado datos involuntariamente de un menor por debajo del umbral de edad aplicable, los eliminaremos lo antes posible. Nos reservamos el derecho de cancelar cuentas que se descubra que pertenecen a usuarios menores de edad.</p>`,
+
+    s13_title: 'Cookies y Tecnologías de Rastreo',
+    s13: `<p>La aplicación móvil Projecta no utiliza cookies del navegador. Sin embargo, nuestro proveedor de infraestructura Supabase utiliza tokens de sesión para mantener tu estado autenticado dentro de la aplicación. Estos tokens se almacenan de forma segura en el almacenamiento local del dispositivo y se utilizan únicamente con fines de autenticación.</p>
+<p>No utilizamos:</p>
+<ul>
+  <li>Cookies publicitarias ni píxeles de seguimiento</li>
+  <li>Tecnologías de rastreo entre aplicaciones o sitios web</li>
+  <li>Huella digital o identificadores de dispositivo para análisis</li>
+  <li>SDKs de análisis de terceros (p. ej., Firebase Analytics, Mixpanel, Amplitude)</li>
+</ul>`,
+
+    s14_title: 'Compras en la App y Pagos',
+    s14: `<p>Projecta es actualmente una aplicación gratuita. No recopilamos, procesamos ni almacenamos información de pago o financiera. Si se introducen compras dentro de la aplicación en el futuro, se gestionarán exclusivamente a través de los sistemas de pago nativos de Apple App Store o Google Play. Nunca manejaremos datos de tarjetas de pago directamente.</p>
+<p>Si introducimos funciones de pago, esta Política de Privacidad se actualizará en consecuencia y se te notificará.</p>`,
+
+    s15_title: 'Eliminación de Cuenta',
+    s15: `<p>Puedes solicitar la eliminación de tu cuenta de Projecta y todos los datos asociados en cualquier momento. Para hacerlo:</p>
+<ol>
+  <li>Envía un correo electrónico a <a href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a> con el asunto <strong>"Solicitud de Eliminación de Cuenta"</strong>.</li>
+  <li>Incluye la dirección de correo electrónico asociada a tu cuenta.</li>
+  <li>Verificaremos tu identidad y confirmaremos la solicitud de eliminación.</li>
+  <li>Tu cuenta y todos los datos personales se eliminarán permanentemente en un plazo de <strong>30 días</strong> tras la confirmación.</li>
+</ol>
+<p>Ten en cuenta que una vez eliminados, tus datos no podrán recuperarse. Los registros de infraestructura del lado del servidor gestionados por Supabase pueden persistir hasta 90 días después de la eliminación, tras lo cual se purgan automáticamente.</p>`,
+
+    s16_title: 'Cambios en Esta Política',
+    s16: `<p>Podemos actualizar esta Política de Privacidad de vez en cuando para reflejar cambios en nuestras prácticas, las funciones de la aplicación o los requisitos legales aplicables. Cuando realicemos cambios:</p>
+<ul>
+  <li>Actualizaremos la fecha "Última actualización" en la parte superior de esta página</li>
+  <li>Para cambios materiales, te notificaremos a través de la dirección de correo electrónico de tu cuenta o mediante un aviso dentro de la aplicación al menos 14 días antes de que el cambio entre en vigor</li>
+  <li>Para cambios menores (aclaraciones, formato), actualizaremos esta página sin notificación individual</li>
+</ul>
+<p>El uso continuado de la aplicación tras cualquier cambio en esta Política de Privacidad constituye tu aceptación de los términos actualizados. Si no estás de acuerdo con la política actualizada, puedes dejar de usar la aplicación y solicitar la eliminación de tu cuenta.</p>`,
+
+    s17_title: 'Contáctanos',
+    s17: `<p>Si tienes alguna pregunta, inquietud o solicitud relacionada con esta Política de Privacidad o el tratamiento de tus datos personales, contáctanos:</p>
+<div class="contact-card">
+  <div class="contact-icon">✉️</div>
+  <div>
+    <div class="contact-label">Privacidad y solicitudes de datos</div>
+    <a class="contact-email" href="mailto:projecta.climbing.app@gmail.com">projecta.climbing.app@gmail.com</a>
+    <div class="contact-note">
+      Respondemos a todas las solicitudes relacionadas con la privacidad en un plazo de <strong>30 días</strong>.<br/>
+      Para solicitudes CCPA, el plazo de respuesta es de 45 días (ampliable en 45 días adicionales cuando sea necesario).<br/>
+      Para divulgaciones urgentes de seguridad, marca tu correo como <strong>"Seguridad — Urgente"</strong>.
+    </div>
+  </div>
+</div>`,
+
+    footer1: '© 2026 Projecta. Todos los derechos reservados.',
+    footer2: 'Esta política se aplica a las aplicaciones móviles Projecta para iOS y Android.',
+  },
+};
+
+function setLang(lang) {
+  const t = strings[lang];
+
+  // Page title
+  document.title = t.page_title;
+  document.documentElement.lang = lang;
+
+  // Simple text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // HTML nodes
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // TOC
+  const grid = document.getElementById('toc-grid');
+  grid.innerHTML = t.toc.map((label, i) =>
+    `<a href="#s${i+1}"><span class="toc-num">${i+1}</span>${label}</a>`
+  ).join('');
+
+  // Toggle buttons
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+
+  localStorage.setItem('pp_lang', lang);
+}
+
+// Auto-detect on load
+const saved = localStorage.getItem('pp_lang');
+setLang(saved || 'en');
+</script>
 </body>
 </html>
